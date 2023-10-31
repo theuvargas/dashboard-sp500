@@ -63,10 +63,9 @@ function DesktopLayout({
                         <Flex className="justify-start mb-6">
                             <MetricCard
                                 title="Valor da ação"
-                                stat={`$
-                            ${company[
-                                company?.length - 1
-                            ]?.close.toLocaleString()}`}
+                                stat={`$${company[
+                                    company?.length - 1
+                                ]?.close.toLocaleString()}`}
                             />
                             <MetricCard
                                 title="Volume do dia"
@@ -91,7 +90,7 @@ function DesktopLayout({
                             <VariationCard
                                 company={company}
                                 variation={variation}
-                                type="mês"
+                                type="ano"
                                 offset={366}
                             />
                             <VariationCard

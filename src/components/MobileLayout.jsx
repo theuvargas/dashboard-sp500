@@ -83,7 +83,7 @@ function MobileLayout({
                     <VariationCard
                         company={company}
                         variation={variation}
-                        type="mês"
+                        type="ano"
                         offset={366}
                     />
                     <VariationCard
