@@ -25,6 +25,7 @@ import VariationCard from './VariationCard';
 import VolumeCard from './VolumeCard';
 import AreaCard from './AreaCard';
 import TableCard from './TableCard';
+import DonutCard from './DonutCard';
 
 function DesktopLayout({
     company,
@@ -34,9 +35,10 @@ function DesktopLayout({
     volumeByYear,
     variation,
     round,
+    profit,
 }) {
     return (
-        <main className="bg-gray-100 px-8 py-8">
+        <main className="bg-gray-200 px-8 py-8">
             <div className="mx-auto max-w-screen-2xl">
                 <Flex alignItems="start" className="gap-4 mb-6">
                     <div className="w-1/2">
@@ -60,7 +62,7 @@ function DesktopLayout({
                                 })}
                             </SearchSelect>
                         </Flex>
-                        <Flex className="justify-start mb-6">
+                        <Flex className="mb-6 gap-10">
                             <MetricCard
                                 title="Valor da ação"
                                 stat={`$${company[
@@ -75,31 +77,40 @@ function DesktopLayout({
                             />
                         </Flex>
                         <AreaCard company={company} />
-                        <div className="mx-auto mt-4 mb-4 grid grid-rows-2 grid-cols-2 gap-4 2xl:grid-rows-1 2xl:grid-cols-4">
-                            <VariationCard
+                        <Flex className="mt-8">
+                            <div className="mx-auto mt-4 mb-4 grid grid-rows-2 grid-cols-2 gap-4">
+                                <VariationCard
+                                    company={company}
+                                    variation={variation}
+                                    type="dia"
+                                />
+                                <VariationCard
+                                    company={company}
+                                    variation={variation}
+                                    type="mês"
+                                    offset={31}
+                                />
+                                <VariationCard
+                                    company={company}
+                                    variation={variation}
+                                    type="ano"
+                                    offset={366}
+                                />
+                                <VariationCard
+                                    company={company}
+                                    variation={variation}
+                                    type="máx"
+                                    offset={company?.length}
+                                />
+                            </div>
+                            <DonutCard
                                 company={company}
-                                variation={variation}
-                                type="dia"
+                                stockName={stockName}
+                                round={round}
+                                profit={profit}
+                                classes={'w-1/2'}
                             />
-                            <VariationCard
-                                company={company}
-                                variation={variation}
-                                type="mês"
-                                offset={31}
-                            />
-                            <VariationCard
-                                company={company}
-                                variation={variation}
-                                type="ano"
-                                offset={366}
-                            />
-                            <VariationCard
-                                company={company}
-                                variation={variation}
-                                type="máx"
-                                offset={company?.length}
-                            />
-                        </div>
+                        </Flex>
                     </div>
                     <div className="w-1/2">
                         <VolumeCard volumeByYear={volumeByYear} />

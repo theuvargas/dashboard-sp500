@@ -26,12 +26,28 @@ function aggregateByYear(arr) {
     }, []);
 }
 
+function computeProfit(company, setProfit) {
+    const profit = [
+        { Situação: 'Alta', Dias: 0 },
+        { Situação: 'Baixa', Dias: 0 },
+    ];
+    company.forEach((day) => {
+        if (day.close >= day.open) {
+            profit[0]['Dias'] += 1;
+        } else {
+            profit[1]['Dias'] += 1;
+        }
+    });
+    setProfit(profit);
+}
+
 function App() {
     const [stockName, setStockName] = useState('AAL');
     const [company, setCompany] = useState([]);
     const [companies, setCompanies] = useState([]);
 
     const [volumeByYear, setVolume] = useState([]);
+    const [profit, setProfit] = useState([]);
 
     const width = useViewport();
 
@@ -57,13 +73,14 @@ function App() {
                 });
 
                 setVolume(aggregateByYear(result));
+                computeProfit(result, setProfit);
             });
         });
     }, [stockName]);
 
     console.log(company);
 
-    return width < 1280 ? (
+    return width < 1536 ? (
         <MobileLayout
             company={company}
             companies={companies}
@@ -72,6 +89,7 @@ function App() {
             volumeByYear={volumeByYear}
             variation={variation}
             round={round}
+            profit={profit}
         />
     ) : (
         <DesktopLayout
@@ -82,6 +100,7 @@ function App() {
             volumeByYear={volumeByYear}
             variation={variation}
             round={round}
+            profit={profit}
         />
     );
 }
