@@ -17,7 +17,7 @@ function TableCard({ company, round, variation }) {
             <Table className="mt-4">
                 <TableHead>
                     <TableRow>
-                        <TableHeaderCell></TableHeaderCell>
+                        <TableHeaderCell>Dia</TableHeaderCell>
                         <TableHeaderCell>Volume</TableHeaderCell>
                         <TableHeaderCell>Abertura</TableHeaderCell>
                         <TableHeaderCell>Fechamento</TableHeaderCell>
@@ -30,7 +30,7 @@ function TableCard({ company, round, variation }) {
                         .reverse()
                         .map((day) => (
                             <TableRow key={day.date}>
-                                <TableCell>{day.date}</TableCell>
+                                <TableCell>{day.date.slice(-2)}</TableCell>
                                 <TableCell>
                                     {day.volume.toLocaleString()}
                                 </TableCell>
