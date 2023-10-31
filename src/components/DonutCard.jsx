@@ -13,7 +13,7 @@ function DonutCard({ profit, round, classes }) {
                     (100 * profit[0]?.Dias) /
                         (profit[0]?.Dias + profit[1]?.Dias)
                 )}%`}
-                colors={['green', 'red']}
+                colors={['emerald', 'rose']}
             />
         </Card>
     );

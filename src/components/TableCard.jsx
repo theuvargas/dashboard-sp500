@@ -12,7 +12,7 @@ import {
 
 function TableCard({ company, round, variation }) {
     return (
-        <Card className="mt-4">
+        <Card>
             <Title>Resumo dos últimos 5 dias</Title>
             <Table className="mt-4">
                 <TableHead>

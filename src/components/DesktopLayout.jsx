@@ -38,11 +38,11 @@ function DesktopLayout({
     profit,
 }) {
     return (
-        <main className="bg-gray-200 px-8 py-8">
-            <div className="mx-auto max-w-screen-2xl">
-                <Flex alignItems="start" className="gap-4 mb-6">
-                    <div className="w-1/2">
-                        <Flex justifyContent="between" className="mb-6">
+        <main className="bg-gray-200 px-8 py-8 h-screen">
+            <div className="mx-auto max-w-screen-2xl h-full">
+                <Flex alignItems="start" className="gap-4 h-full">
+                    <div className="w-1/2 h-full flex flex-col justify-between">
+                        <Flex justifyContent="between">
                             <h1 className="text-3xl ml-4 underline decoration-4 decoration-cyan-600 decoration-double">
                                 {stockName}
                             </h1>
@@ -62,7 +62,7 @@ function DesktopLayout({
                                 })}
                             </SearchSelect>
                         </Flex>
-                        <Flex className="mb-6 gap-10">
+                        <Flex className="gap-10">
                             <MetricCard
                                 title="Valor da ação"
                                 stat={`$${company[
@@ -77,8 +77,8 @@ function DesktopLayout({
                             />
                         </Flex>
                         <AreaCard company={company} />
-                        <Flex className="mt-8">
-                            <div className="mx-auto mt-4 mb-4 grid grid-rows-2 grid-cols-2 gap-4">
+                        <Flex className="gap-8">
+                            <div className="w-1/2 h-full flex flex-wrap gap-4 justify-between">
                                 <VariationCard
                                     company={company}
                                     variation={variation}
@@ -112,7 +112,7 @@ function DesktopLayout({
                             />
                         </Flex>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-1/2 h-full flex flex-col justify-between">
                         <VolumeCard volumeByYear={volumeByYear} />
                         <TableCard
                             company={company}

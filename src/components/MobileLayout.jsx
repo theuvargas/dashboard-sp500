@@ -38,7 +38,7 @@ function MobileLayout({
     profit,
 }) {
     return (
-        <main className="bg-gray-200 px-2 py-6 mx-auto">
+        <main className="bg-gray-200 px-2 sm:px-8 py-6 mx-auto">
             <div className="max-w-3xl mx-auto">
                 <Flex className="mb-6">
                     <h1 className="text-3xl ml-4 underline decoration-4 decoration-cyan-600 decoration-double">
@@ -79,7 +79,7 @@ function MobileLayout({
                     />
                 </Flex>
                 <AreaCard company={company} />
-                <div className="mx-auto mt-4 mb-4 grid grid-rows-2 grid-cols-2 gap-4 sm:grid-rows-1 sm:grid-cols-4">
+                <div className="my-4 flex flex-wrap justify-around sm:justify-between gap-2">
                     <VariationCard
                         company={company}
                         variation={variation}
@@ -104,7 +104,9 @@ function MobileLayout({
                         offset={company?.length}
                     />
                 </div>
-                <VolumeCard volumeByYear={volumeByYear} />
+                <div className="mb-4">
+                    <VolumeCard volumeByYear={volumeByYear} />
+                </div>
                 <TableCard
                     company={company}
                     round={round}

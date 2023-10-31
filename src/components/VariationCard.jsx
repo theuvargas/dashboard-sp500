@@ -4,7 +4,7 @@ function VariationCard({ company, variation, type, offset }) {
     return (
         <>
             {type == 'dia' ? (
-                <Card className="w-40 mx-auto">
+                <Card className="w-40">
                     <Flex>
                         <Text>Variação ({type})</Text>
                     </Flex>
@@ -29,7 +29,7 @@ function VariationCard({ company, variation, type, offset }) {
                     )}
                 </Card>
             ) : (
-                <Card className="w-40 mx-auto">
+                <Card className="w-40">
                     <Flex>
                         <Text>Variação ({type})</Text>
                     </Flex>
